@@ -2,7 +2,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
 session_start();
 define('MAIN_DIR', __DIR__);
-define('HOST', $_SERVER['HTTP_HOST']);
+define('HOST', $_SERVER['HTTP_HOST'].'/hosting-git-helper');
 //define('HOST', 'localhost/hosting-git-helper-copy');
 require 'app/functions.php';
 $controller = new \App\Controllers\GitHubController;
