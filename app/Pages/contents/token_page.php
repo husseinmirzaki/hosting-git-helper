@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-header">Set Token</div>
             <div class="card-body">
-                <form method="POST" action="/token">
+                <form method="POST" action="<?php echo getHost() ?>/token">
                     <div class="form-group row">
                         <label for="token" class="col-sm-4 col-form-label text-md-right">Token</label>
                         <div class="col-md-6">

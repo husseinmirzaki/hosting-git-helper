@@ -3,6 +3,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 session_start();
 define('MAIN_DIR', __DIR__);
 define('HOST', $_SERVER['HTTP_HOST']);
+//define('HOST', 'localhost/hosting-git-helper-copy');
 require 'app/functions.php';
 $controller = new \App\Controllers\GitHubController;
 if (isset($_SERVER['REDIRECT_URL'])) {
@@ -11,7 +12,7 @@ if (isset($_SERVER['REDIRECT_URL'])) {
     if (strpos(HOST, $inner_address[1]))
         $inner_address = array_slice($inner_address, 1, count($inner_address));
     if (!($token = sessionGet('token')) && $inner_address[1] != "token") {
-        echo "go to <a href='/token'>Token</a>";
+        echo "go to <a href='".getHost()."/token'>Token</a>";
     } else {
         if (sessionGet('token')) {
             setGlobals('github', new \Github\Client());

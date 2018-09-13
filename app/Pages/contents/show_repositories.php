@@ -22,7 +22,7 @@
         <div class="card mt-md-3">
             <div class="card-header">Project Directory</div>
             <div class="card-body">
-                <form method="POST" action="/changeProjectDirectory">
+                <form method="POST" action="<?php echo getHost() ?>/changeProjectDirectory">
                     <div class="form-group row">
                         <label for="token" class="col-sm-4 col-form-label text-md-right">Project Directory</label>
                         <div class="col-md-6">
