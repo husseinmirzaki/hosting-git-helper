@@ -8,7 +8,9 @@ $controller = new \App\Controllers\GitHubController;
 if (isset($_SERVER['REDIRECT_URL'])) {
     $request = $_SERVER['REDIRECT_URL'];
     $inner_address = explode('/', $request);
-    if (!($token = sessionGet('token')) && $request != "/token") {
+    if (strpos(HOST, $inner_address[1]))
+        $inner_address = array_slice($inner_address, 1, count($inner_address));
+    if (!($token = sessionGet('token')) && $inner_address[1] != "token") {
         echo "go to <a href='/token'>Token</a>";
     } else {
         if (sessionGet('token')) {
