@@ -20,5 +20,18 @@ this is posible to pull change of a branch to your project for now it does not s
 ![app screenshot 3](https://github.com/husseinmirzaki/hosting-git-helper/raw/master/screenshot3.png)
 
 ### Use Cases
-This app could be used in your website if it soes not allow some certain features like **exec** or **shell_exec** you can use this repo.
+This app could be used in your website if it does not allow some certain features like **exec** or **shell_exec** you can use this repo.
 
+## Pay attention while using
+inside of `index.php`
+```
+<?php
+require_once __DIR__ . '/vendor/autoload.php';
+session_start();
+define('MAIN_DIR', __DIR__);
+define('HOST', $_SERVER['HTTP_HOST']);
+```
+when defining `HOST` if you are using this repo in a sub directory add it here like this
+```
+define('HOST', $_SERVER['HTTP_HOST']. '/hosting-git-helper');
+```
