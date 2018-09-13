@@ -6,7 +6,7 @@
                 <div class="row">
                     <?php foreach ($GLOBALS['repositories'] as $repository): ?>
                         <div class="col col-4 mb-2">
-                            <a href="/branches/<?php echo $repository['name'] ?>">
+                            <a href="<?php echo getHost() ?>/branches/<?php echo $repository['name'] ?>">
                                 <div class="card">
                                     <div class="card-body">
                                         <?= $repository['full_name'] ?>

@@ -3,11 +3,11 @@
         <div class="card">
             <?php $commit = getGlobals('commit') ?>
             <div class="card-header font-weight-bold">Commits of <?php echo $commit['commit']['message'] ?>
-                <a href="/commits/<?php echo getGlobals('repository') . '/' . getGlobals('branch') ?>" class="float-right  btn btn-danger"> Back </a>
-                <a href="/pull/<?php echo getGlobals('repository') . '/' .
+                <a href="<?php echo getHost() ?>/commits/<?php echo getGlobals('repository') . '/' . getGlobals('branch') ?>" class="float-right  btn btn-danger"> Back </a>
+                <a href="<?php echo getHost() ?>/pull/<?php echo getGlobals('repository') . '/' .
                     getGlobals('branch') . '/' . $commit['sha'] ?>" class="float-right  btn btn-warning mr-1"> Pull </a>
-                <a href="/clone/<?php echo getGlobals('repository') . '/' . $commit['sha'] ?>" class="float-right  btn btn-primary mr-1"> Clone </a>
-                <a href="/cloneToDisk/<?php echo getGlobals('repository') . '/' . $commit['sha'] ?>" class="float-right  btn btn-primary mr-1"> Clone To Disk </a>
+                <a href="<?php echo getHost() ?>/clone/<?php echo getGlobals('repository') . '/' . $commit['sha'] ?>" class="float-right  btn btn-primary mr-1"> Clone </a>
+                <a href="<?php echo getHost() ?>/cloneToDisk/<?php echo getGlobals('repository') . '/' . $commit['sha'] ?>" class="float-right  btn btn-primary mr-1"> Clone To Disk </a>
             </div>
             <div class="card-body">
                 <div class="row">

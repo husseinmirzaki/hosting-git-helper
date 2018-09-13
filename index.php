@@ -13,11 +13,12 @@ if (isset($_SERVER['REDIRECT_URL'])) {
     if (!($token = sessionGet('token')) && $request != "/token") {
         echo "go to <a href='/token'>Token</a>";
     } else {
-
-        setGlobals('github', new \Github\Client());
-        getGlobals('github')->authenticate(sessionGet('token'), null, \Github\Client::AUTH_HTTP_TOKEN);
-        setGlobals('user', getGlobals('github')->currentUser()->show());
-        setGlobals('username', getGlobals('user')['login']);
+        if (sessionGet('token')) {
+            setGlobals('github', new \Github\Client());
+            getGlobals('github')->authenticate(sessionGet('token'), null, \Github\Client::AUTH_HTTP_TOKEN);
+            setGlobals('user', getGlobals('github')->currentUser()->show());
+            setGlobals('username', getGlobals('user')['login']);
+        }
         switch ($inner_address[1]) {
             case 'token':
                 if (methodPost())
@@ -44,10 +45,10 @@ if (isset($_SERVER['REDIRECT_URL'])) {
                 $controller->pullCommit($inner_address[2], $inner_address[3], $inner_address[4]);
                 break;
             case 'clone':
-                $controller->cloneLink($inner_address[2] , $inner_address[3]);
+                $controller->cloneLink($inner_address[2], $inner_address[3]);
                 break;
             case 'cloneToDisk':
-                $controller->cloneToDisk($inner_address[2] , $inner_address[3]);
+                $controller->cloneToDisk($inner_address[2], $inner_address[3]);
                 break;
         }
     }

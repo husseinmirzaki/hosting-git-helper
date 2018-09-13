@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header font-weight-bold"><?php echo getGlobals('repository')['name'] ?>
-                <a href="/branches/<?php echo getGlobals('repository')['name'] ?>" class="float-right btn btn-danger">Back</a>
+                <a href="<?php echo getHost() ?>/branches/<?php echo getGlobals('repository')['name'] ?>" class="float-right btn btn-danger">Back</a>
             </div>
             <div class="card-body">
                 <pre>
