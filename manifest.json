@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+
+  "name": "فعال سازی لینک ها در آپارات",
+  "version": "0.1.0",
+  "description": "شما میتوانید با استفاده از این افضونه براحتی لینک های آپارات فعال کنید",
+
+  "content_scripts": [{
+    "js": ["content.js"],
+    "css": ["content.css"],
+    "matches": ["https://aparat.com/*" , "https://www.aparat.com/*"]
+  }]
+
+}
