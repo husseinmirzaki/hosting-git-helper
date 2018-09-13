@@ -26,7 +26,7 @@
                     <div class="form-group row">
                         <label for="token" class="col-sm-4 col-form-label text-md-right">Project Directory</label>
                         <div class="col-md-6">
-                            <input id="token" type="text" name="token" value="<?php echo getDownPath() ?>" required="required" autofocus="autofocus" class="form-control">
+                            <input id="token" type="text" name="pd" value="<?php echo getDownPath() ?>" autofocus="autofocus" class="form-control">
 
                             <span>This app dir : <?php echo getMainDir() ?></span>
                         </div>

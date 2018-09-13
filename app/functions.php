@@ -21,7 +21,11 @@ function getTemplateContentDir()
 
 function includeTemplateContent($str)
 {
+    includeTemplate('header');
+    includeTemplate('body_top');
     require getTemplateContentDir() . "/$str.php";
+    includeTemplate('body_bottom');
+    includeTemplate('footer');
 }
 
 function includeTemplate($str)
@@ -60,7 +64,6 @@ function sessionGet($str)
 function sessionPut($key, $value)
 {
     $_SESSION[$key] = $value;
-    session_commit();
 }
 
 function methodPost()

@@ -114,4 +114,16 @@ class GitHubController
         fclose($archive);
         header("location:javascript://history.go(-1)");
     }
+
+    public function changeProjectDirectory()
+    {
+        if (!$project_directory = getPostData('pd')) {
+            unset($_SESSION['projectDist']);
+            return;
+        }
+        sessionPut('projectDist', $project_directory);
+
+        header('location: '.getHost().'/repositories');
+        exit();
+    }
 }

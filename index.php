@@ -5,8 +5,6 @@ define('MAIN_DIR', __DIR__);
 define('HOST', $_SERVER['HTTP_HOST']);
 require 'app/functions.php';
 $controller = new \App\Controllers\GitHubController;
-includeTemplate('header');
-includeTemplate('body_top');
 if (isset($_SERVER['REDIRECT_URL'])) {
     $request = $_SERVER['REDIRECT_URL'];
     $inner_address = explode('/', $request);
@@ -50,11 +48,11 @@ if (isset($_SERVER['REDIRECT_URL'])) {
             case 'cloneToDisk':
                 $controller->cloneToDisk($inner_address[2], $inner_address[3]);
                 break;
+            case 'changeProjectDirectory':
+                $controller->changeProjectDirectory();
+                break;
         }
     }
 } else {
     echo "welcome";
 }
-includeTemplate('body_bottom');
-includeTemplate('footer');
-?>
