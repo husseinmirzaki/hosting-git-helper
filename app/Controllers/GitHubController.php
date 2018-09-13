@@ -24,6 +24,7 @@ class GitHubController
             return;
         }
         sessionPut('token', $token);
+        header('location: '.getHost() .'/repositories');
     }
 
     public function showRepositories()
@@ -112,7 +113,7 @@ class GitHubController
         $resource = fopen(getDownPath() . "/$repository-$ref.zip", 'w+');
         fwrite($resource, $archive);
         fclose($archive);
-        header("location:javascript://history.go(-1)");
+        header("location: ".$_SERVER['HTTP_REFERER']);
     }
 
     public function changeProjectDirectory()
@@ -123,7 +124,7 @@ class GitHubController
         }
         sessionPut('projectDist', $project_directory);
 
-        header('location: '.getHost().'/repositories');
+        header('location: '.$_SERVER['HTTP_REFERER']);
         exit();
     }
 }
